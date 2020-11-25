@@ -108,7 +108,12 @@ Module
 
 		if (qbs.toolchain.contains("msvc"))
 		{
-
+			flags = flags.concat("/FI", "ciso646")
+			
+			flags.push("/w34239") // turn on on 3rd level warning C4239: nonstandard extension used : 'argument'
+			flags.push("/wd4458") // warning C4458: declaration of '<var>' hides class member
+			flags.push("/wd4457") // warning C4457: declaration of '<var>' hides function parameter
+			flags.push("/wd4456") // warning C4456: declaration of '<var>' hides previous local declaration
 		}
 
 		return flags
