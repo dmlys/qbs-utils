@@ -31,7 +31,7 @@ Module
 
 	cpp.driverLinkerFlags:
 	{
-		var flags = cpp.additionalDriverLinkerFlags || []
+		var flags = project.additionalDriverLinkerFlags || []
 
 		var envDefines = Environment.getEnv("QBS_EXTRA_DRIVER_LINKER_FLAGS")
 		if (envDefines)
@@ -85,7 +85,7 @@ Module
 
 	cpp.cxxFlags:
 	{
-		var flags = cpp.additionalCxxFlags || []
+		var flags = project.additionalCxxFlags || []
 
 		var envFlags = Environment.getEnv("QBS_EXTRA_CXXFLAGS")
 		if (envFlags)
@@ -121,7 +121,7 @@ Module
 
 	cpp.cFlags:
 	{
-		var flags = cpp.additionalCFlags || []
+		var flags = project.additionalCFlags || []
 
 		var envFlags = Environment.getEnv("QBS_EXTRA_CFLAGS")
 		if (envFlags)
@@ -136,7 +136,7 @@ Module
 
 	cpp.systemIncludePaths:
 	{
-		var includes = []
+		var includes = project.additionalSystemIncludePaths || []
 		var envIncludes = Environment.getEnv("QBS_EXTRA_SYSTEM_INCLUDES")
 		if (envIncludes)
 		{
@@ -149,7 +149,7 @@ Module
 
 	cpp.includePaths:
 	{
-		var includes = []
+		var includes = project.additionalIncludePaths || []
 		var envIncludes = Environment.getEnv("QBS_EXTRA_INCLUDES")
 		if (envIncludes)
 		{
@@ -162,7 +162,7 @@ Module
 
 	cpp.libraryPaths:
 	{
-		var libPaths = []
+		var libPaths = project.additionalLibraryPaths || []
 		var envLibPaths = Environment.getEnv("QBS_EXTRA_LIBPATH")
 		if (envLibPaths)
 		{
