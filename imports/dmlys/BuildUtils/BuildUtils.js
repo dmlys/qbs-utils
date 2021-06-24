@@ -30,7 +30,7 @@ function make_winlib(qbs, cpp, libname)
 	var is_static_runtime = cpp.runtimeLibrary == "static"
 	
 	if (is_static_runtime)
-		name += is_debug ? "-sgd" : "-gd"
+		name += is_debug ? "-sgd" : "-s"
 	else
 		name += is_debug ? "-gd" : ""
 	
