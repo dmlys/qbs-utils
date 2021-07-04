@@ -52,7 +52,7 @@ function make_libs()
 		{
 			var item = arguments[i]
 			if (Array.isArray(item))
-				libs = make_libs.apply(null, [qbs, cpp].concat.concat(item))
+				libs = make_libs.apply(null, [qbs, cpp].concat(item))
 			else
 				libs.push(String(item))
 		}
