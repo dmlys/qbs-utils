@@ -39,6 +39,14 @@ function make_winlib(qbs, cpp, libname)
 	return name;
 }
 
+function make_lib(qbs, cpp, libname)
+{
+	if (qbs.toolchain.contains('msvc'))
+		return make_winlib.apply(null, qbs, cpp, libname)
+	else
+		return libname
+}
+
 function make_libs()
 {
 	var qbs = arguments[0]
